@@ -11,8 +11,9 @@ function guardar(req, res){
         libro.save((err, librostore) => {
             if (err){
                 return res.status(400).send({mensaje: `Error al intentar guardar en base de datos > ${err}`})
-                res.status(200).send({ libro: librostore})
+                
             }
+            res.status(200).send({ libro: librostore})
         })
 
     }
