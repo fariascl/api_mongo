@@ -45,8 +45,38 @@ function recupera(req, res){
     })
 }
 
+function editar(req, res){
+    let idlibro = req.params.id
+    Libro.findByIdAndUpdate(idlibro, req.body, (err, libro) => {
+        if (err){
+            return res.status(500).send({ mensaje: 'error al modificar el libro '})
+        }
+        if (!libro) {
+            return res.status(400).send({mensaje : 'error, el libro no existe'})
+        }
+
+        res.status(200).send({ libro })
+    })
+}
+
+function elimina(req, res){
+    let idlibro = req.params.id
+    Libro.findByIdAndDelete(idlibro, (err, libro) => {
+        if (err){
+            return res.status(500).send({ mensaje: 'error al eliminar el libro '})
+        }
+        if (!libro) {
+            return res.status(400).send({mensaje : 'error, el libro no existe'})
+        }
+
+        res.status(200).send({ libro })
+    })
+}
+
 module.exports = {
     guardar,
     listar,
-    recupera
+    recupera,
+    editar,
+    elimina
 };

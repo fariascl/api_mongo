@@ -20,25 +20,12 @@ const LibroSchema = Schema(
         {
             type:String,
             required: true,
-            validate:
-            {
-                validator: function (v)
-                {
-                    let isValid = false;
-                    const pattern = new RegExp('^[A-ZÁÉÍÓÚÑ ]+$', 'i');
-                    if (pattern.test(v))
-                    {
-                        isValid = true;
-                    }
-                    return isValid;
-                },
-                message: props => `nombre no tiene formato correcto`
-            }
         },
 
         anio:
         {
-            type: Number
+            type: Number,
+            required: true,
         },
 
         idioma:
