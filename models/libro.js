@@ -19,7 +19,7 @@ const LibroSchema = Schema(
         nombre:
         {
             type:String,
-            required: true,
+            //required: true,
             validate:
             {
                 validator: function (v)
@@ -45,13 +45,13 @@ const LibroSchema = Schema(
         {
             type: String,
             enum: ['ING','ESP'],
-            required: true
+            //required: true
         },
 
         autor:
         {
             type: String,
-            required: true
+            //required: true
         }
 
     })
